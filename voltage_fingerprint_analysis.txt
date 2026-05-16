@@ -1,0 +1,264 @@
+================================================================================
+VOLTAGE FINGERPRINT ANALYSIS — 100 cm² MEA CO2RR
+Effect of Flow-Field Configuration on Cell Voltage Behavior During FE(CO) Decline
+================================================================================
+
+System: AgNPs GDE (>100nm, 0.4–0.5 mg/cm²) | Sustanion AEM | IrO2-TiPt anode
+Operation: 50 mM CH3COOH humidified CO2 (200 ml/min) | 100 ml/min 0.1M KHCO3 | 100 mA/cm²
+Date: 2026-05-04
+
+
+================================================================================
+1. CORE PRINCIPLE: CELL VOLTAGE AS A FAILURE FINGERPRINT
+================================================================================
+
+In galvanostatic (constant current) operation, cell voltage encodes the
+electrolyzer's operating state:
+
+  V_cell = E_rev + η_act(cathode) + η_act(anode) + iR + η_conc(cathode) + η_conc(anode)
+
+When selectivity shifts from CO2RR→CO to HER, what happens to each term
+determines whether voltage goes UP, DOWN, or STAYS FLAT.
+
+The three flow-field configurations each trigger a DIFFERENT failure mechanism.
+That mechanism leaves a distinct, reproducible voltage fingerprint — independent
+of what the FE(CO) trace looks like.
+
+  Observed results (100 cm² MEA):
+    • Single-serpentine:  55 h durability — voltage DECREASES with FE drop
+    • Quad-serpentine:    ~43 h durability — voltage DECREASES with FE drop
+    • Parallel:           ~20 h durability — voltage STABLE despite FE drop
+
+  Contrast (Ni-SAC cathode system, separate experiment):
+    • Ni-SAC:             voltage INCREASES proportionally with FE(H2) rise
+
+
+================================================================================
+2. SERPENTINE FLOW-FIELDS (SINGLE AND QUAD): VOLTAGE DECREASES
+================================================================================
+
+ROOT FAILURE MECHANISM:
+  Salt crystal formation at CO2 inlet → CO2 starvation downstream →
+  GDE back-flooding by product water
+
+SEQUENCE OF EVENTS:
+  1. K2CO3 / KHCO3 salt nucleates preferentially at the serpentine CO2 inlet
+     (highest OH⁻ production → most CO3²⁻ → highest K⁺ saturation)
+  2. Salt partially blocks the inlet channel → CO2 flow downstream restricted
+  3. CO2 is no longer sweeping product water out of the GDE pores
+  4. Product water invades GDE pores from the catalyst-layer side (back-flooding)
+  5. GDE transitions from gas-phase-accessible to liquid-saturated electrode
+  6. HER takes over (water is the new reactant source)
+
+IMPACT ON EACH VOLTAGE TERM:
+
+  ┌─────────────────────────────┬───────────┬────────────────────────────────────┐
+  │ Voltage term                │ Direction │ Mechanism                          │
+  ├─────────────────────────────┼───────────┼────────────────────────────────────┤
+  │ E_rev                       │ ↓ −0.11V  │ E°(CO2→CO) ≈ −0.52V vs RHE        │
+  │                             │           │ E°(HER)    ≈ −0.41V vs RHE         │
+  │                             │           │ HER thermodynamically cheaper       │
+  ├─────────────────────────────┼───────────┼────────────────────────────────────┤
+  │ η_conc(CO2)                 │ ↓ Large   │ CO2 blocked → CO2 concentration    │
+  │                             │           │ overpotential disappears entirely   │
+  │                             │           │ HER from water has no CO2 barrier  │
+  ├─────────────────────────────┼───────────┼────────────────────────────────────┤
+  │ iR (ohmic)                  │ ↓ Signif. │ Flooded GDE pores create continuous│
+  │                             │           │ ionic path to AEM. Dry GDE-AEM     │
+  │                             │           │ contact resistance drops sharply.  │
+  ├─────────────────────────────┼───────────┼────────────────────────────────────┤
+  │ η_act(HER on Ag)            │ ↑ Slight  │ Ag is poor HER catalyst            │
+  │                             │           │ (j₀ ~10⁻⁷ A/cm² vs Pt ~10⁻³)     │
+  │                             │           │ Partially opposes voltage drop      │
+  ├─────────────────────────────┼───────────┼────────────────────────────────────┤
+  │ ECSA for HER                │ ↑ Large   │ Flooded 3D GDE structure allows    │
+  │                             │           │ HER throughout bulk Ag NP network, │
+  │                             │           │ not just triple-phase boundary.    │
+  │                             │           │ Cancels kinetic penalty above.     │
+  └─────────────────────────────┴───────────┴────────────────────────────────────┘
+
+NET RESULT: E_rev ↓ + η_conc ↓ + iR ↓ all dominate over the weak HER kinetic
+penalty on Ag. CELL VOLTAGE DECREASES.
+
+This is the signature of PHYSICAL GDE FLOODING after gas-phase CO2 starvation.
+The cell becomes easier to drive at constant current because it has shifted to
+a lower-resistance, lower-thermodynamic-barrier reaction — at the cost of
+selectivity.
+
+NOTE ON FLUSHING EVENT (~47–50 h, single-serpentine):
+  Periodic high-flow CO2 purge physically displaces accumulated water from GDE
+  pores, partially re-drying the GDE and restoring CO2RR triple-phase boundary.
+  This is why voltage partially recovers and FE(CO) rises briefly after flushing.
+  The fact that flushing provides temporary recovery CONFIRMS that GDE flooding
+  (not catalyst deactivation) is the dominant failure mode.
+
+
+================================================================================
+3. PARALLEL FLOW-FIELD: VOLTAGE STABLE DESPITE FE(CO) DROP
+================================================================================
+
+ROOT FAILURE MECHANISM:
+  Water accumulation in low-velocity channels → CO2 channel blockage
+  WITHOUT deep GDE pore flooding
+
+KEY DISTINCTION FROM SERPENTINE:
+  In parallel channels, low gas velocity allows liquid water droplets to
+  accumulate and block the short channel lengths. CO2 access to the GDE
+  behind those channels is lost.
+
+  HOWEVER: the Ag NP GDE contains hydrophobic PTFE binder in the carbon
+  substrate. This hydrophobicity RESISTS liquid water intrusion into the GDE
+  pore bulk from the channel side. Water plugs the channel entrance, but does
+  NOT deeply penetrate the GDE pore structure.
+
+WHAT THIS MEANS FOR EACH VOLTAGE TERM:
+
+  • iR (ohmic):         ≈ FLAT. No deep GDE pore flooding → no ionic pathway
+                        improvement → ohmic resistance unchanged.
+  • η_conc:             ↓ slight. Partial CO2 loss from channel blockage.
+  • E_rev:              ↓ −0.11V. Same as serpentine (HER thermodynamics).
+  • η_act(HER on Ag):   ↑. Poor Ag HER kinetics, with no significant ECSA gain
+                        (GDE not flooded, so limited bulk HER surface available).
+
+NET RESULT: The primary voltage-lowering mechanism (GDE bulk flooding → iR drop)
+does NOT occur. The HER kinetic penalty and the E_rev decrease approximately
+cancel. CELL VOLTAGE REMAINS STABLE.
+
+SPATIAL AVERAGING INTERPRETATION:
+  In parallel, channels fail INDEPENDENTLY (no cascade). At any moment:
+    - Open channels:   CO2RR-active, voltage contribution ~3.5V
+    - Blocked channels: HER in partially-wet GDE, voltage contribution ~3.3–3.4V
+  The measured cell voltage is the spatial average across the full active area.
+  As more channels block sequentially, FE(CO) drops — but the voltage average
+  shifts only slightly. This produces the observed "stable voltage, falling FE"
+  profile.
+
+ADDITIONAL FACTOR — Doubling CO2 flow at ~20 h (observed recovery):
+  Temporarily restored FE(CO) from 60% → 80% (first 1–2 h), then collapsed
+  again. Interpretation: higher velocity briefly cleared water plugs from
+  channels, restoring CO2 access. But since the root cause (low per-channel
+  velocity) was unchanged, water re-accumulated within ~3 h and failure resumed.
+  This confirms channel-blockage (not GDE flooding) as the parallel failure mode.
+
+
+================================================================================
+4. Ni-SAC SYSTEM CONTRAST: VOLTAGE INCREASES WITH FE(H2) RISE
+================================================================================
+
+ROOT FAILURE MECHANISM:
+  Catalyst kinetic degradation — Ni single-atom sites deactivate
+  (reduction, CO poisoning, loss of atomic dispersion)
+
+FUNDAMENTAL DIFFERENCE:
+  There is NO GDE flooding mechanism in Ni-SAC failure. CO2 is physically
+  accessible at the electrode. The catalyst simply can no longer use it.
+
+IMPACT ON VOLTAGE TERMS:
+  • iR:           ≈ flat (no flooding, no ohmic change)
+  • η_conc:       ≈ flat (CO2 still available at electrode surface)
+  • E_rev:        ≈ flat (no change in reaction thermodynamics)
+  • η_act:        ↑↑ LARGE. As Ni-SAC sites deactivate, more overpotential
+                  is demanded to force the same constant current through
+                  increasingly poor catalytic sites. HER on residual carbon
+                  and deactivated Ni is kinetically slow.
+
+NET RESULT: No voltage-relief mechanisms present. The galvanostat must supply
+progressively more voltage to maintain constant current → CELL VOLTAGE INCREASES.
+
+This is the signature of PURE KINETIC DEGRADATION: catalyst failure without
+any physical ohmic or mass-transport compensation.
+
+
+================================================================================
+5. MECHANISTIC COMPARISON TABLE
+================================================================================
+
+  ┌──────────────────────┬──────────────────────────────┬─────┬──────────┬──────────┬──────────┬──────────────┐
+  │ System               │ Failure mode                 │ iR  │ η_conc   │ E_rev    │ η_act    │ Net voltage  │
+  ├──────────────────────┼──────────────────────────────┼─────┼──────────┼──────────┼──────────┼──────────────┤
+  │ Serpentine (Ag)      │ Salt → CO2 starvation →      │ ↓   │ ↓ large  │ ↓ −0.11V │ ↑ slight │ DECREASES    │
+  │                      │ GDE back-flooding            │     │          │          │          │              │
+  ├──────────────────────┼──────────────────────────────┼─────┼──────────┼──────────┼──────────┼──────────────┤
+  │ Parallel (Ag)        │ Water channel blockage;      │ ≈   │ ↓ slight │ ↓ −0.11V │ ↑        │ STABLE       │
+  │                      │ GDE hydrophobicity           │     │          │          │          │              │
+  │                      │ resists pore flooding        │     │          │          │          │              │
+  ├──────────────────────┼──────────────────────────────┼─────┼──────────┼──────────┼──────────┼──────────────┤
+  │ Ni-SAC               │ Catalyst kinetic             │ ≈   │ ≈        │ ≈        │ ↑↑ large │ INCREASES    │
+  │                      │ deactivation; no flooding    │     │          │          │          │              │
+  └──────────────────────┴──────────────────────────────┴─────┴──────────┴──────────┴──────────┴──────────────┘
+
+
+================================================================================
+6. DIAGNOSTIC IMPLICATIONS FOR STACK OPERATION
+================================================================================
+
+The voltage trend during FE(CO) decline is a LEADING INDICATOR of failure type:
+
+  V DECREASING (serpentine signature):
+    → Physical GDE flooding after CO2 starvation underway.
+    → Irreversible if allowed to progress. Abort at >0.30V drop.
+    → Intervention: restore CO2 access (flushing) and prevent re-flooding
+      (higher acid concentration, elevated temperature, higher CO2 flow).
+
+  V STABLE (parallel signature):
+    → Water channel blockage without deep GDE flooding.
+    → Less catastrophic per event, but each blocked channel is lost until flushed.
+    → Intervention: increase CO2 velocity (higher flow rate per channel).
+    → Note: increasing total flow rate temporarily helps but doesn't fix
+      the root cause (insufficient per-channel velocity in parallel design).
+
+  V INCREASING (kinetic degradation signature):
+    → Catalyst deactivation. Not a flow-field or salt problem.
+    → Intervention: catalyst regeneration or replacement.
+    → Not observed in Ag NP GDE under these conditions.
+
+PRACTICAL ALERT THRESHOLDS FOR 500 cm² STACK MONITORING:
+  Warning:    Any single cell ΔV > 0.15V from 1h moving average
+  Abort:      Any single cell ΔV > 0.30V from initial steady state
+              OR any cell V < 2.5V (possible short or AEM rupture)
+              OR any cell V > 4.5V (severe dry-out or catalyst failure)
+
+Goal of 0.5M acid + 50°C intervention:
+  → Prevent reaching the GDE flooding stage entirely by dissolving nascent
+    salt crystals in situ, keeping CO2 pathways open throughout the run.
+    If successful, none of the above failure signatures should appear before 150h.
+
+
+================================================================================
+7. KEY MECHANISTIC INSIGHT (SUMMARY)
+================================================================================
+
+Counter-intuitively, the voltage DROP in serpentine represents a cell working
+LESS hard electrically — because it has shifted to a lower-resistance, lower-
+thermodynamic-barrier reaction (HER in flooded GDE). But it is the most
+catastrophic failure from a selectivity and GDE integrity standpoint.
+
+The STABLE voltage in parallel looks "healthier" on the voltage trace, but the
+FE(CO) collapse is faster because there is no ohmic or kinetic compensation —
+the cell is simply losing active CO2RR area without gaining any electrical
+efficiency benefit.
+
+The RISING voltage in Ni-SAC is the most energy-costly failure (galvanostat
+works harder and harder), but may be more recoverable if the catalyst can be
+regenerated. GDE flooding in the Ag system is typically not self-reversing
+without active flushing.
+
+BOTTOM LINE:
+  Voltage trend ≠ severity of failure.
+  Voltage trend = identity of the failure mechanism.
+  Use it to distinguish flooding from degradation from channel blockage —
+  and target your intervention accordingly.
+
+
+================================================================================
+REFERENCES
+================================================================================
+  • Hao et al., Nat. Energy 2025 — salt mechanism, K⁺ crossover, flow-field
+  • Hao et al., Science 2025 + SM — acid humidification, GDE water management
+  • Biemolt et al., ACS Energy Lett. 2025 — cation accumulation, temperature
+  • Li et al., EES Catalysis 2025 — CO2 mass transport, concentration effects
+  • Internal 100 cm² flow-field comparison data (this work)
+
+================================================================================
+END OF DOCUMENT
+================================================================================

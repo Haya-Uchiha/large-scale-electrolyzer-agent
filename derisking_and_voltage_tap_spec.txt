@@ -1,0 +1,343 @@
+================================================================================
+APPENDIX A — DE-RISKING EXPERIMENT (100 cm² single-cell)
+APPENDIX B — PER-CELL VOLTAGE TAP WIRING (500 cm² stack)
+================================================================================
+Companion to: 500cm2_stack_operating_conditions.txt
+Date: 2026-05-04
+
+
+================================================================================
+APPENDIX A — DE-RISKING EXPERIMENT
+================================================================================
+
+PURPOSE
+-------
+Before committing to stack hardware (manifolds, end plates, tie-rods, anolyte
+loop, 5-channel DAQ), validate that the proposed Run #1 chemistry/temperature
+combination actually solves the salt-formation problem at the SINGLE cell
+scale where you already have a 55 h baseline reference.
+
+Strategic logic: stack scale-up is currently a 3-variable problem
+  (1) acid 0.05 → 0.5 M
+  (2) temperature 25 → 50 °C
+  (3) stack-level manifolding (entirely new)
+This experiment closes (1) and (2) on known-good hardware, reducing the stack
+build to a single new variable: manifolding.
+
+
+EXPERIMENTAL DESIGN
+-------------------
+Strategy: "cheap-first, decompose-on-failure"
+  - Run A (primary):   combined acid + temperature change
+  - Run B (conditional): only if Run A succeeds at >100 h — drop temperature
+                         to test whether T is essential or acid alone suffices
+  - Run C (conditional): only if Run A fails before 80 h — drop acid back
+                         to test whether T alone provides any benefit
+
+This avoids running 4 full-factorial arms (which would take ~4 weeks).
+Total expected campaign time: 1–3 weeks depending on outcome.
+
+
+RUN A — PRIMARY (CRITICAL PATH)
+-------------------------------
+All parameters identical to existing 55 h baseline EXCEPT acid and temperature.
+Holding everything else constant ensures any difference is attributable to
+the two changed variables.
+
+Cell hardware:
+  • Active area:                       100 cm² (existing)
+  • Cathode flow-field:                Single-serpentine (existing)
+  • Anode flow-field:                  Parallel (existing)
+  • Cathode GDE:                       Ag NPs (same batch family as baseline)
+  • Anode:                             IrO2/Ti-Pt (existing)
+  • AEM:                               Same batch as baseline
+  • Gasket:                            Same as baseline
+  • Assembly torque:                   8 ft·lbs / 11 N·m (unchanged)
+
+Operating conditions:
+  • Current density:                   100 mA/cm² (10 A) — UNCHANGED
+  • CO2 flow rate:                     2 ml/min/cm² (200 ml/min) — UNCHANGED
+                                       (keep same to isolate acid+T effect;
+                                        the higher 3.5 ml/min/cm² stack flow
+                                        is a separate convection benefit that
+                                        does not need validation here)
+  • Acid in humidifier:                0.5 M CH3COOH         **CHANGED**
+  • Cell + anolyte temperature:        50 °C                 **CHANGED**
+  • CO2 humidifier temperature:        50 °C                 **CHANGED**
+  • Anolyte:                           10 L of 0.1 M KHCO3 (unchanged)
+  • Anolyte flow:                      100 ml/min (unchanged)
+  • Anolyte refresh:                   Every 24 h (unchanged)
+
+Measurements:
+  • Cell voltage:                      Continuous, 1 Hz
+  • CO2 inlet pressure:                Continuous, 1 Hz
+  • Anolyte pH and temperature:        Continuous, 1 Hz
+  • GC (FE CO/H2):                     Every 1 h
+  • Anolyte K⁺ (ICP-OES):              Every 24 h refresh
+  • Visual inlet inspection:           Every 24 h (camera through inlet port)
+  • Post-mortem SEM/EDX of GDE:        Inlet zone, mid zone, outlet zone
+
+Duration target:                       150 h or until FE(CO) < 80%
+                                       (whichever comes first)
+
+
+PASS / FAIL DECISIONS (Run A)
+-----------------------------
+GREEN — proceed directly to stack build:
+  ✓ Lifetime ≥ 150 h with FE(CO) ≥ 80%
+  ✓ Cell voltage stays within ±0.2 V of initial value
+  ✓ CO2 inlet pressure rise < 20% over the run
+  ✓ Anolyte K⁺ accumulation ≤ 30% of baseline rate
+       (validates Biemolt 50× claim at the stack-relevant scale)
+
+YELLOW — partial improvement, decompose before stack:
+  ◐ Lifetime 80–150 h with FE(CO) ≥ 80%
+    → The combination helps but doesn't fully solve. Run B (decompose) to find
+      the dominant contributor, then add Tier-2 intervention (CsHCO3 swap)
+      before stack build.
+
+RED — stop, do not build stack:
+  ✗ Lifetime < 80 h (worse than or equal to existing 55 h baseline)
+    → The salt mechanism is not the dominant failure mode. Run C (decompose)
+      to identify whether the failure has shifted to a different mechanism
+      (flooding, AEM degradation, GDE wettability change at 50 °C, etc.)
+      Re-evaluate the entire approach before stack commitment.
+
+
+CONDITIONAL RUN B (only if Run A is GREEN or YELLOW)
+----------------------------------------------------
+Goal: separate acid contribution from temperature contribution.
+
+Conditions: identical to Run A, EXCEPT temperature back to 25 °C.
+  → 0.5 M CH3COOH at 25 °C
+
+Decision logic from Run A vs Run B:
+  • If Run B ≈ Run A duration: temperature is NOT essential, acid alone fixes it.
+    Stack design simplifies (skip 50 °C heating).
+  • If Run B much shorter than Run A: temperature IS essential, must implement
+    full thermal control on stack. Plan accordingly.
+
+Duration: until FE(CO) drops below 80%, max 150 h.
+
+
+CONDITIONAL RUN C (only if Run A is RED)
+----------------------------------------
+Goal: identify whether the new failure mode is thermal or chemical.
+
+Conditions: identical to Run A, EXCEPT acid back to 0.05 M.
+  → 0.05 M CH3COOH at 50 °C
+
+Decision logic:
+  • If Run C ≥ baseline 55 h: temperature alone helps (some K⁺ reduction);
+    failure mode is acid-vapor-flux limited even at 50 °C.
+    → Tier-2 escalation: 1.0 M acid OR formic acid HCOOH at 50 °C.
+  • If Run C < 55 h baseline: 50 °C operation is INTRODUCING a new failure
+    mode (likely AEM dehydration, ionomer rearrangement, or accelerated
+    Ag GDE wettability loss).
+    → STOP. Reconsider thermal target. Try 35–40 °C instead of 50 °C.
+
+
+WHAT TO MEASURE THAT YOU PROBABLY DON'T MEASURE TODAY
+-----------------------------------------------------
+Adding these will dramatically improve diagnostic value:
+
+  1. Anolyte K⁺ kinetics (ICP-OES every 24 h, not just before refresh)
+     → Lets you fit a rate constant for K⁺ accumulation. The 50× reduction
+       claim becomes a measurable fit parameter, not an assumption.
+
+  2. Outlet gas water content (humidity sensor or condensate mass)
+     → Distinguishes water flooding from salt blockage as failure root cause.
+
+  3. Cell impedance (EIS at OCV every 12 h, brief 100 kHz – 0.1 Hz sweep)
+     → R_HF tracks AEM hydration/conductivity. R_LF tracks mass-transport.
+       Diverging R_LF is the earliest signature of GDE flooding.
+
+  4. Pressure transducer at CO2 outlet, not just inlet
+     → Δ P across the cell is a more sensitive blockage indicator than
+       inlet pressure rise alone (which depends on outlet impedance too).
+
+These four additions cost ~$3–5k and provide >10× the diagnostic power.
+
+
+================================================================================
+APPENDIX B — PER-CELL VOLTAGE TAP WIRING (500 cm² stack)
+================================================================================
+
+WHY YOU NEED PER-CELL VOLTAGE MEASUREMENT
+-----------------------------------------
+At the 100 cm² scale, your principal failure signature was a 0.2 V drop in
+cell voltage as HER took over from CO2RR. In a 5-cell series stack, only the
+SUM of cell voltages is visible from the galvanostat — a 0.3 V drop in cell 3
+disappears into a 17.5 V stack reading at the noise level (~0.5%).
+
+Per-cell taps let you:
+  • Detect single-cell failure ~5× earlier than stack-voltage alone
+  • Identify WHICH cell is failing → diagnose manifold maldistribution
+  • Trigger fail-fast abort on individual cell deviation (saves AEMs)
+  • Compute per-cell power dissipation → catch one cell heating up
+  • Validate cell-to-cell uniformity for first build (commissioning data)
+
+
+THE COMMON-MODE VOLTAGE GOTCHA (READ THIS FIRST)
+------------------------------------------------
+Each cell only has ~3.3–3.5 V across it, but the absolute voltage of each
+cell's terminals relative to system ground depends on its position in the
+series stack:
+
+  Cell 1: terminals at  0.0 V to  3.5 V vs ground
+  Cell 2: terminals at  3.5 V to  7.0 V vs ground
+  Cell 3: terminals at  7.0 V to 10.5 V vs ground
+  Cell 4: terminals at 10.5 V to 14.0 V vs ground
+  Cell 5: terminals at 14.0 V to 17.5 V vs ground
+
+If you connect a single-ended (non-isolated) DAQ to cell 5, the input sees
++17.5 V common-mode — well outside typical ±10 V ADC input range.
+
+** REQUIREMENT: every voltage channel must be DIFFERENTIAL with channel-to-
+   channel ISOLATION ≥ 60 V (ideally 250 V for safety margin). **
+
+Failing this, you will either:
+  • Damage the DAQ (out-of-range common-mode), OR
+  • Short-circuit a cell through the DAQ ground path (very bad — burns AEM)
+
+
+PHYSICAL TAP POINTS
+-------------------
+The 5-cell stack has 6 conducting plates in the series stack-up:
+
+   [End plate −]  BPP₁  BPP₂  BPP₃  BPP₄  [End plate +]
+        ↑          ↑     ↑     ↑     ↑          ↑
+        T₀         T₁    T₂    T₃    T₄         T₅
+
+  V_cell_1 = T₁ − T₀
+  V_cell_2 = T₂ − T₁
+  V_cell_3 = T₃ − T₂
+  V_cell_4 = T₄ − T₃
+  V_cell_5 = T₅ − T₄
+  V_stack  = T₅ − T₀
+
+Six tap points = 5 cell voltages + 1 stack-total cross-check.
+
+Tap connection method (in order of preference):
+  1. M3 brass or stainless screw threaded into the EDGE of each BPP/end plate
+     (drill+tap during BPP fabrication; permanent, low resistance, repeatable)
+  2. Spring-loaded pogo pin in a fixture pressed against BPP edge
+     (good for prototyping, ~mΩ contact resistance, tool-free)
+  3. Solder lug clamped under a tie-rod nut (only if BPP edge is exposed)
+     (avoid; thermally cycled solder joints fatigue)
+  4. Alligator clip on exposed edge (lab quick-and-dirty, NOT for >24 h runs)
+
+
+WIRE SPECIFICATION
+------------------
+For each of the 6 tap points, route a single conductor to a centralized
+terminal block, then form differential pairs at the DAQ side.
+
+  • Conductor:                         22 AWG stranded copper, PTFE insulation
+                                       (PTFE survives 50 °C with margin and is
+                                        chemically resistant to electrolyte mist)
+  • Bundle:                            SHIELDED, twisted in pairs at the DAQ
+                                       end (not the stack end — keep stack-side
+                                       wires unmatched length to avoid creating
+                                       loops across cells)
+  • Shield:                            Braided, drained at DAQ-side ONLY
+                                       (single-point ground; never both ends)
+  • Length:                            < 3 m to DAQ (longer runs pick up noise
+                                       from galvanostat switching)
+  • Routing:                           Physically SEPARATED from current-
+                                       carrying cables (the 10 A bus bars from
+                                       galvanostat to end plates) by ≥ 15 cm
+                                       to prevent inductive coupling
+
+CRITICAL: do NOT loop wires near the bus bars. A 1 cm² wire loop sitting
+1 cm from a 10 A switching cable picks up tens of mV of noise — bigger than
+the ΔV signal you're trying to detect.
+
+
+DAQ HARDWARE OPTIONS
+--------------------
+Pick ONE of the following based on budget and existing infrastructure:
+
+OPTION 1 — National Instruments cDAQ (RECOMMENDED, ~$3–4k)
+  • Chassis: NI cDAQ-9174 (4-slot USB) or similar
+  • Module: NI 9219 — 4-channel universal analog input
+                     ±60 V differential range
+                     250 Vrms channel-to-channel isolation
+                     24-bit, 100 S/s/channel
+  • Need: 2× NI 9219 modules (8 channels available, use 5)
+  • Software: LabVIEW or NI-DAQmx Python wrapper
+  • Sampling: 1 Hz application rate, 100 S/s native (oversampled for noise
+              rejection)
+
+OPTION 2 — Keithley 2700/2750 multimeter + multiplexer (~$5–8k)
+  • Mainframe: Keithley 2750 with 7700 plug-in card (40 channels)
+  • Each channel: full 300 V isolation, 6½-digit DMM
+  • Sampling: ~1 Hz across all 5 channels (multiplexed, sequential)
+  • Limitation: NOT simultaneous sampling — each cell read 1/5 second apart.
+                Acceptable for 1 Hz logging where dynamics are minute-scale,
+                NOT acceptable for transient analysis.
+
+OPTION 3 — Isolated voltage transducers + shared ADC (~$1–2k, lab-built)
+  • 5× LEM LV 25-P or similar Hall-effect isolated voltage sensors
+  • Each transducer: ±500 V input range, ±10 V output, 2.5 kV isolation
+  • Output to a single multi-channel ADC (any cheap USB DAQ works since
+    common-mode is now eliminated by transducers)
+  • Limitation: each transducer adds ±0.5% gain error and ~10 mV offset.
+                Calibrate each channel before commissioning.
+
+OPTION 4 — DIY differential amplifiers per channel (~$300, NOT recommended)
+  • INA128 or similar instrumentation amp per cell, with isolated supplies
+  • Works but requires careful PCB layout, EMI shielding, and per-channel
+    calibration. Save the engineering time and buy NI 9219.
+
+
+SAFETY GROUNDING
+----------------
+  • The galvanostat output is typically ISOLATED from earth ground.
+  • Do NOT bond either end of the stack to earth via the DAQ.
+  • The DAQ chassis grounds to earth; channel-to-channel isolation in the
+    NI 9219 (or equivalent) keeps the stack floating.
+  • Verify with a multimeter before commissioning: V(end_plate_negative
+    to earth) should be a floating value, not 0.0 V.
+  • If the galvanostat IS earth-grounded on its negative side, T₀ = earth
+    and the common-mode problem is reduced — but still use isolated DAQ
+    in case future galvanostat is replaced with floating model.
+
+
+ALARM THRESHOLDS (build into logging software)
+----------------------------------------------
+Implement real-time alarms that abort the run on individual cell distress:
+
+  WARNING (log + email/SMS, do not stop run):
+    • Any V_cell deviates by >0.15 V from its 1 h moving average
+    • Any V_cell more than 0.10 V different from stack mean
+    • CO2 inlet pressure 1 h slope > +5 mbar/h
+
+  ABORT (open galvanostat, stop CO2, alert operator):
+    • Any V_cell deviates by >0.30 V from initial steady-state value
+    • Any V_cell drops below 2.5 V (likely shorted cell or AEM rupture)
+    • Any V_cell exceeds 4.5 V (severe blockage / dry-out / catalyst issue)
+    • Stack voltage > 22 V (one or more cells in distress)
+    • CO2 inlet pressure > 30% above initial
+
+The 0.30 V single-cell deviation threshold is calibrated to the 100 cm²
+observation that V drops 0.2 V as HER takes over — abort BEFORE catalyst
+or AEM is permanently damaged.
+
+
+COMMISSIONING CHECKLIST (before applying current to stack)
+----------------------------------------------------------
+  □ All 6 tap points show < 1 Ω contact resistance to corresponding BPP
+  □ All 5 channels read 0.000 ± 0.001 V at OCV with no anolyte
+  □ Inject 1.000 V at one tap point pair (calibration source); DAQ reads
+    1.000 ± 0.005 V on that channel, 0.000 V on others (no crosstalk)
+  □ Galvanostat output verified isolated from earth (or accepted as grounded)
+  □ Bus bar geometry verified ≥ 15 cm from voltage tap wire bundle
+  □ Sampling at 1 Hz, logging to disk, alarm thresholds armed
+  □ Software graceful-abort tested: simulate threshold breach, confirm
+    galvanostat opens and CO2 valve closes within 5 seconds
+
+
+================================================================================
+END OF APPENDIX A & B
+================================================================================

@@ -1,0 +1,13 @@
+# Core (always required)
+# Built-in: argparse, csv, datetime, logging, math, random, signal, sys, time, dataclasses, enum, abc, pathlib
+# (no external deps for simulation mode)
+
+# For real hardware integration (uncomment when implementing RealHardware)
+# nidaqmx>=0.7.0          # NI DAQmx Python wrapper for NI-9219, NI-9205, NI-9211
+# pymodbus>=3.5.0         # Modbus RTU/TCP for Bronkhorst MFC, Julabo bath
+# pyserial>=3.5           # Serial protocol for galvanostat, pH transmitter
+# pyyaml>=6.0             # Hardware config file parsing
+
+# Analysis (optional, for post-run notebooks)
+# pandas>=2.0
+# matplotlib>=3.7

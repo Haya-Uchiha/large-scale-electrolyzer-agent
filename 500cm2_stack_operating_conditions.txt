@@ -1,0 +1,275 @@
+================================================================================
+500 cm² STACKED MEA ELECTROLYZER — OPERATING SETUP & CONDITIONS
+Run #1 (Baseline durability test, target: >24 h, FE(CO) >80%, SPU 10–20%)
+================================================================================
+
+Date prepared: 2026-05-04
+System lineage: scale-up from validated 100 cm² single-cell MEA
+Configuration: 5 × 100 cm² cells in electrical series, parallel gas/liquid feed
+
+
+================================================================================
+1.  SYSTEM CONFIGURATION
+================================================================================
+
+Cell architecture (per cell, 5 cells identical):
+  • Active area:                       100 cm²
+  • Cathode:                           Ag NPs GDE (same batch across all 5 cells)
+  • Anode:                             IrO2 on Ti-Pt mesh
+  • Membrane:                          Anion Exchange Membrane (AEM)
+  • Cathode flow-field:                SINGLE-SERPENTINE
+                                       (selected based on 100 cm² results:
+                                        55 h durability vs 43 h quad, 20 h parallel)
+  • Anode flow-field:                  Parallel
+  • Bipolar plate material:            Graphite or stainless steel
+  • Gasket:                            PTFE / FKM (matched to baseline)
+
+Stack configuration:
+  • Number of cells:                   5
+  • Electrical connection:             Series (10 A flows through all cells)
+  • Gas connection:                    Parallel (Z-type manifold)
+  • Liquid connection:                 Parallel (Z-type manifold)
+  • End plate material:                Aluminum or stainless steel,
+                                       ≥25–30 mm thick (prevents bending)
+  • Tie-rods:                          8× M6 (or matched to existing 100 cm² pattern)
+  • Stack assembly torque:             8 ft·lbs (~11 N·m) per bolt
+                                       — same as 100 cm² (per-bolt force unchanged)
+                                       — tighten in star pattern, 4 passes
+                                         (25%, 50%, 75%, 100% of target)
+  • Belleville (disc-spring) washers:  Yes, under each tie-rod nut
+                                       (maintains compression during 50 °C cycling)
+
+
+================================================================================
+2.  ELECTROCHEMICAL OPERATING CONDITIONS
+================================================================================
+
+Current and voltage:
+  • Current density (per cell):        100 mA/cm²
+  • Total stack current:               10 A (galvanostatic, series)
+  • Per-cell voltage:                  3.3–3.5 V expected
+  • Total stack voltage:               16.5–17.5 V expected
+  • Operating mode:                    Constant current (galvanostatic)
+
+Per-cell faradaic targets:
+  • FE(CO):                            >80% (target),  >90% (stretch)
+  • FE(H2):                            <20% (target),  <10% (stretch)
+
+
+================================================================================
+3.  CO2 GAS FEED
+================================================================================
+
+CO2 flow rate:
+  • Per cell:                          3.5 ml/min/cm² = 350 ml/min
+  • Total stack flow (5 cells):        1.75 L/min (1750 ml/min)
+  • Purity:                            ≥99.99% (research grade)
+  • Single-Pass Utilization (SPU):     ~20% target
+                                       — calculated from 10 A → 69.7 ml/min CO2
+                                         consumed at 100% FE(CO)
+                                       — 69.7 / 350 = 19.9% SPU per cell
+
+CO2 humidification:
+  • Acid:                              0.5 M acetic acid (CH3COOH)
+                                       — corrects 20× under-dosing identified
+                                         in 100 cm² failure analysis
+  • Humidifier temperature:            50 °C (matched to cell)
+  • Humidifier vessel:                 Bubbler with PTFE frit, ≥250 ml fill
+  • Humidifier line:                   Heated to ≥50 °C to prevent condensation
+
+Mass flow controller (MFC):
+  • Range:                             0–5000 ml/min (oversize for 7 ml/min/cm²
+                                       troubleshooting flow)
+  • Inline pressure transducer:        Yes — flag salt blockage if rise ≥20%
+
+Manifold (CO2 distribution to 5 cells):
+  • Topology:                          Z-type (inlet at one end, outlet at far end)
+  • Trunk ID:                          ≥10 mm
+  • Branch to each cell:               4 mm ID PFA tubing, equal length (±5 cm)
+  • Per-cell flow measurement:         Inline rotameter or thermal flow sensor
+                                       (5× sensors total)
+  • Target distribution uniformity:    ±10% per cell at cold flow
+
+
+================================================================================
+4.  ANOLYTE LOOP
+================================================================================
+
+Anolyte composition:
+  • Solute:                            0.1 M KHCO3
+                                       (Cs HCO3 reserved for Tier-2 troubleshooting)
+  • Volume:                            50 L total
+  • Reservoir material:                PP or HDPE, ≥60 L (10 L freeboard)
+
+Anolyte flow rate:
+  • Per cell:                          1 ml/min/cm² = 100 ml/min
+                                       — matched to 100 cm² baseline hydrodynamics
+  • Total stack flow:                  500 ml/min (parallel feed)
+  • Reservoir turnover time:           ~100 min
+  • Refresh cycle:                     Every 24 h (full 50 L swap)
+                                       — re-evaluate at 12 h if pH < 7.5
+
+Pump:
+  • Capacity:                          750–1000 ml/min (oversize for headroom)
+  • Type:                              Magnetic-drive centrifugal or peristaltic
+  • Throttle:                          Valve to 500 ml/min stack flow
+
+Manifold (anolyte distribution to 5 cells):
+  • Topology:                          Z-type
+  • Trunk ID:                          ≥10 mm
+  • Branch to each cell:               4 mm ID PFA, equal length
+  • Return path:                       Common header back to reservoir
+  • Per-cell flow check:               Visual rotameter on each branch
+
+Reservoir conditioning:
+  • pH probe + thermocouple:           Continuous logging
+  • Foam control:                      Anti-foam agent if foaming observed
+  • Temperature:                       Heat reservoir to ≥40 °C (or 50 °C if
+                                       full thermal control desired) to prevent
+                                       cooling the cell stack via inflow
+
+
+================================================================================
+5.  TEMPERATURE CONTROL
+================================================================================
+
+Operating temperature:                 50 °C (cell body, anolyte loop, CO2 humidifier)
+
+Rationale (Biemolt et al., ACS Energy Lett. 2025):
+  Elevated temperature reduces K⁺ accumulation at the AEM/cathode interface
+  by ~50× compared to 25 °C — directly attacks the salt-formation root cause.
+
+Implementation:
+  • Stack body:                        Heating jacket OR clamshell heaters on
+                                       end plates with thermal conduction to
+                                       bipolar plates
+  • Anolyte reservoir:                 Heater/circulator (e.g., Julabo), 50 °C ±1
+  • CO2 humidifier:                    Temperature-controlled bath, 50 °C ±1
+  • CO2 transfer line:                 Heat-traced, 50 °C ±2
+  • Thermocouples (minimum):           K-type at — stack inlet, stack outlet,
+                                       anolyte reservoir, humidifier, end plates
+                                       (top + bottom)
+  • Heat-up procedure:                 Equilibrate 60 min at 50 °C with full gas
+                                       flow before applying current
+
+
+================================================================================
+6.  PRESSURE MANAGEMENT
+================================================================================
+
+  • CO2 inlet pressure:                1.2–1.5 bar gauge (slight back-pressure
+                                       aids per-cell flow uniformity)
+  • Cathode/anode pressure balance:    ±50 mbar maximum (prevent AEM rupture)
+  • Stack pressure relief:             Set at 2.0 bar gauge
+  • Outlet:                            Atmospheric (or to gas chromatograph
+                                       sampling line via condenser/water trap)
+
+
+================================================================================
+7.  MEASUREMENT & DATA LOGGING
+================================================================================
+
+Continuous (≤1 min interval):
+  • Stack voltage (V_total)
+  • Per-cell voltages (V₁ through V₅, separate channels)
+  • Stack current (galvanostat readback)
+  • CO2 inlet pressure (stack-level)
+  • Per-cell CO2 inlet flow (5 sensors)
+  • Anolyte pH (reservoir)
+  • Anolyte temperature (reservoir)
+  • Stack body temperatures (top + bottom end plates, mid-stack if accessible)
+
+Periodic (1 h interval):
+  • Outlet gas composition by GC
+                                       — FE(CO), FE(H2) calculated stack-averaged
+                                       — per-cell GC sampling if hardware permits
+  • SPU calculation = (CO produced) / (CO2 fed)
+
+Per refresh cycle (12–24 h):
+  • Anolyte K⁺ concentration (ICP-OES)
+  • Anolyte HCO₃⁻/CO₃²⁻ titration
+  • Visual inspection of CO2 inlet/outlet ports for salt deposition
+
+Post-run:
+  • Stack disassembly photographs of each cell's GDE backside and flow-field
+  • SEM/EDX of GDE cross-section (cell 1, cell 3, cell 5 — first, middle, last)
+
+
+================================================================================
+8.  PASS / FAIL CRITERIA (Run #1)
+================================================================================
+
+PASS (proceed to push performance bar):
+  ✓ Stack-averaged FE(CO) ≥80% sustained for ≥24 h
+  ✓ SPU between 10–20% throughout the run
+  ✓ No single-cell voltage drop >0.2 V from initial value
+  ✓ CO2 inlet pressure rise <20% over 24 h
+  ✓ Per-cell CO2 flow uniformity within ±10% throughout
+
+FAIL (stop run, do not push through):
+  ✗ Any single cell V drop >0.3 V → that cell is undergoing salt/HER cascade
+  ✗ Stack-averaged FE(CO) <70% before 12 h
+  ✗ CO2 inlet pressure rise >30% in <6 h (severe blockage)
+  ✗ Anolyte pH drop below 7.0 before scheduled refresh
+  ✗ Any visible cathode-side leak (gasket failure)
+
+
+================================================================================
+9.  TROUBLESHOOTING HIERARCHY (if Run #1 fails)
+================================================================================
+
+Tier 1 (cheap, fast — try first):
+  1. Increase per-cell CO2 flow:        3.5 → 5 ml/min/cm² (SPU drops to ~14%)
+  2. Increase acid concentration:       0.5 → 1.0 M CH3COOH
+  3. Verify per-cell flow uniformity by cold-flow at 5 ml/min/cm²
+
+Tier 2 (chemistry change):
+  4. Switch acid:                       CH3COOH → HCOOH (formic, more volatile)
+                                        at 0.5 M
+  5. Anolyte cation swap:               KHCO3 → CsHCO3 (Cs⁺ does not crystallize)
+
+Tier 3 (operational):
+  6. Pulsed operation:                  50 min on / 5–10 min OCV
+  7. Periodic CO2 surge:                400 ml/min/cell for 5 min every 4 h
+
+Tier 4 (re-evaluate):
+  8. Drop back to single-cell scale,    re-validate the 0.5 M + 50 °C combination
+                                        at 100 cm² before re-attempting stack.
+
+
+================================================================================
+10. ASSUMPTIONS & KNOWN UNKNOWNS
+================================================================================
+
+Assumptions carried forward from 100 cm² single-cell experience:
+  • Single-serpentine durability advantage transfers to stack scale
+  • 0.5 M CH3COOH closes the acid under-dosing gap completely
+  • 50 °C delivers the full 50× K⁺ accumulation reduction (Biemolt scaled to AEM)
+  • Manifold uniformity ±10% achievable with Z-type design
+
+New failure modes possible at stack scale (not present at single cell):
+  • Cell-to-cell flow maldistribution (gas or liquid)
+  • End-plate flex causing non-uniform compression across cells
+  • Thermal gradient between top/bottom end plates
+  • One-cell failure cascading to neighbors via shared anolyte loop pH shift
+
+Highest-priority pre-Run-#1 de-risking step (recommended):
+  → Validate the 0.5 M + 50 °C combination on a SINGLE 100 cm² cell first.
+    If single-cell durability extends from 55 h → ≥150 h, the stack scale-up
+    becomes a 1-variable problem (manifolding) rather than 3-variable.
+
+
+================================================================================
+11. REFERENCES
+================================================================================
+
+  • Hao et al., Nat. Energy 2025 — K⁺ crossover, salt mechanism, flow-field effects
+  • Hao et al., Science 2025 + SM — Acid humidification, multi-serpentine durability
+  • Biemolt et al., ACS Energy Lett. 2025 — Cation accumulation framework, T effects
+  • Li et al., EES Catalysis 2025 — SPCE, elevated T/P CO2RR
+  • Internal: 100 cm² single-cell flow-field comparison study (this project)
+
+
+================================================================================
+END OF DOCUMENT
+================================================================================
