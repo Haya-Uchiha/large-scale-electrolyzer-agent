@@ -376,6 +376,15 @@ These carry over from Heng's global CLAUDE.md — respect them:
   which track (NiSAC/BPM or Ag NPs/AEM) and which scale (5 cm², 100 cm²
   single-cell, 500 cm² stack) if not stated. Do not mix boilerplate
   between tracks.
+- **Data analysis**: when Heng provides graph images (.png/.jpg) or
+  raw data (.xlsx/.csv), read and extract values directly — FE(CO) at
+  key time points, cell voltage trend, pressure trajectory, duration.
+  Cross-reference with voltage fingerprints in §1 to identify the
+  failure mechanism only if the voltage trace supports it. Never invent
+  numbers; mark anything unreadable as `[TBD]`.
+- **Output folder**: all generated files (Markdown drafts, Python
+  scripts, data exports) must be saved to `generated reports/`. Do not
+  save drafts in the source data folder (`plotted graphs/`).
 
 ---
 
@@ -427,3 +436,72 @@ Unless told otherwise:
 End every response with: (a) the draft, (b) a short list of
 assumptions or placeholders Heng needs to fill, and (c) suggested
 next step.
+
+- **Data analysis output** (when figures or raw data are provided):
+  deliver (1) a bullet-point table of extracted values per figure,
+  (2) identified failure mechanism with supporting evidence, (3) the
+  ready-to-paste result paragraph, and (4) a numbered TBD list of
+  values Heng must verify from raw data.
+
+---
+
+## 8. Monthly-report figure-to-docx workflow
+
+**Trigger phrase**: "Write the Results section for the [Month] monthly
+report using the figures in `plotted graphs/[Month]/`."
+
+This is the standard end-of-month task. Follow these steps exactly:
+
+### Step 1 — Read the data registry
+- Open `plotted graphs/[Month]/CLAUDE.md`.
+- If it does not exist, create it first: read each figure image,
+  extract all readable values into a registry table per figure
+  (FE(CO) at key time points, cell voltage, pressure, duration,
+  failure event), and link figures that share the same experiment
+  (e.g. Fig 2 bottom and Fig 3 are the same 100 cm² flow-field run
+  viewed from two measurement channels). Mark unreadable values
+  as `[TBD]`.
+
+### Step 2 — Draft the Results section (Markdown)
+- Save the draft to `generated reports/YYYY-MM-DD-[Month]-report-results-draft.md`.
+- One subsection per figure (or per linked figure group). Title each
+  subsection by the **variable being studied**, e.g.
+  `Effect of cathode flow-field configuration on CO₂RR durability at 100 cm²`.
+- Use the result paragraph formula from §2 Mode A.
+- Estimate any `[TBD]` values from the graph image to the best
+  readable precision; mark all estimates explicitly with `[estimated]`
+  so Heng knows which to verify.
+- For linked figures (e.g. FE+V from one figure, inlet pressure from
+  another), write a single unified subsection that interprets both
+  measurement channels together.
+
+### Step 3 — Insert into the .docx report
+- Locate the existing report file in `plotted graphs/[Month]/` (named
+  `[N]_[Month] report - Sothearoth Heng.docx`).
+- Open with `python-docx`. Find the "Results" heading paragraph and
+  the "Upcoming tasks" heading paragraph.
+- Remove any blank placeholder paragraphs between them.
+- Insert each subsection (heading + body paragraphs + figure caption)
+  using `OxmlElement` + `upcoming_para._element.addprevious(p_el)` so
+  that paragraphs appear in order immediately before "Upcoming tasks".
+- Save the file in-place (overwrite). Unicode chemical formulae
+  (CO₂, KHCO₃, cm⁻²) are written directly as Unicode — do not attempt
+  Word subscript XML.
+
+### Step 4 — Deliver summary and TBD list
+- Report: files created/modified and their paths.
+- Produce a numbered TBD table listing every estimated or missing
+  value, which figure it belongs to, and what raw source to check
+  (GC CSV, DAQ logger CSV, pressure channel, post-mortem photo).
+- Commit the updated .docx (and registry, if newly created) to git
+  and push.
+
+### Key rules for this workflow
+- Never insert content outside the Results section (between "Results"
+  and "Upcoming tasks" headings only).
+- Never delete or overwrite the "Results", "Upcoming tasks", or any
+  other section heading.
+- If the .docx structure is unexpected (heading not found, extra
+  sections), stop and report the anomaly to Heng before proceeding.
+- The Markdown draft in `generated reports/` is the source of truth;
+  the .docx is a formatted copy. Both must exist after the task.
