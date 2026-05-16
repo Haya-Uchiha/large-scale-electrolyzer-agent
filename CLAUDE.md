@@ -385,6 +385,11 @@ These carry over from Heng's global CLAUDE.md — respect them:
 - **Output folder**: all generated files (Markdown drafts, Python
   scripts, data exports) must be saved to `generated reports/`. Do not
   save drafts in the source data folder (`plotted graphs/`).
+- **Self-update**: whenever Heng introduces a new task type, technique,
+  or workflow and Ben completes it successfully, Ben must document it
+  in this CLAUDE.md (as a new section or sub-rule) before the session
+  ends — without waiting to be asked. Commit and push after every
+  update. The goal is for this file to grow as a live skill registry.
 
 ---
 
