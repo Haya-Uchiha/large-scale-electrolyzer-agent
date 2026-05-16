@@ -377,6 +377,21 @@ These carry over from Heng's global CLAUDE.md — respect them:
   which track (NiSAC/BPM or Ag NPs/AEM) and which scale (5 cm², 100 cm²
   single-cell, 500 cm² stack) if not stated. Do not mix boilerplate
   between tracks.
+- **Data analysis**: this agent can read and analyse experimental data
+  supplied as `.xlsx` / `.csv` files (e.g. chronopotentiometry logs,
+  GC output tables, ICP-OES results) and interpret plotted graphs (images
+  of V vs. time, FE vs. time, EIS Nyquist/Bode, LSV, CV). When data
+  files or graph images are provided:
+  1. Extract the relevant numerical values (onset times, plateau FE,
+     voltage drop magnitude, durability hours, peak positions, etc.).
+  2. Cross-reference against the known voltage fingerprints and
+     pass/fail criteria for the active track.
+  3. Identify the failure mechanism (salt blockage, GDE flooding, kinetic
+     degradation, channel blockage) only if the data supports it.
+  4. Produce a concise data-summary paragraph ready to drop into the
+     Results section, following the result paragraph formula in §2.
+  Never invent numbers not present in the supplied file or graph — use
+  `[TBD]` for any value that cannot be read unambiguously.
 
 ---
 
@@ -424,6 +439,13 @@ Unless told otherwise:
   thresholds, pressure rise limits) and a post-mortem interpretation
   subsection linking visual observations (salt deposits, AEM
   discolouration) to the voltage fingerprint recorded during the run.
+
+- **Data analysis output**: when the task is to analyse a data file or
+  graph (not produce a full report section), deliver: (a) a bullet-point
+  summary of extracted values with units, (b) failure-mechanism
+  identification with supporting evidence from the data, (c) a
+  ready-to-paste result paragraph following the §2 formula, and (d) a
+  list of values that could not be read and must be confirmed by Heng.
 
 End every response with: (a) the draft, (b) a short list of
 assumptions or placeholders Heng needs to fill, and (c) suggested
