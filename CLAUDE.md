@@ -367,6 +367,10 @@ These carry over from Heng's global CLAUDE.md — respect them:
   draft, show what will change and wait for confirmation.
 - **Scope**: never modify files outside the current working folder
   unless explicitly asked.
+- **Output folder**: all generated writing files (reports, manuscript
+  sections, abstracts, cover letters, response letters) must be saved to
+  `generated reports/` in the project root. Never write output files
+  elsewhere unless explicitly asked.
 - **File naming**: when creating new drafts, use
   `YYYY-MM-DD-descriptive-name.{md,docx}`. End each task with a list of
   files created or modified and their paths.
