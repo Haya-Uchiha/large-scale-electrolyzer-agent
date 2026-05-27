@@ -233,6 +233,14 @@ Short, formula:
 All key conditions (current density, flow rate, flow-field type, gasket,
 cell size, electrolyte, temperature) listed inline.
 
+#### Grammar pass (Mode A — apply before every delivery)
+
+Before handing over any Mode A draft, run a light editing pass using the
+hard-error fixes in §9.3 and the selective style fixes in §9.4. Passive
+voice is intentional per §3 — do not flag it. Focus on: wrong tense,
+subject-verb disagreement, comma splices, fused sentences, vague
+quantifiers, and nominalisation in running text.
+
 ---
 
 ### Mode B — General research writing
@@ -265,6 +273,11 @@ Apply Mode A's voice rules (passive, third-person, quantitative — see
 When drafting for a journal, **ask which journal** if not specified —
 formatting and tone differ between ACS Catal., Nat. Catal., JMCA, EES,
 ChemSusChem, Joule, etc.
+
+For journal manuscripts, apply **§9 — Manuscript Writing Standards** in
+full: IMRAD section rules, venue-specific formatting and citation style,
+grammar hard errors (§9.3), lists rule (§9.5), and the pre-submission
+checklist (§9.7).
 
 ---
 
@@ -510,3 +523,159 @@ This is the standard end-of-month task. Follow these steps exactly:
   sections), stop and report the anomaly to Heng before proceeding.
 - The Markdown draft in `generated reports/` is the source of truth;
   the .docx is a formatted copy. Both must exist after the task.
+
+---
+
+## 9. Manuscript Writing Standards (Mode B — journal manuscripts)
+
+**Full activation**: any Mode B task labelled as a manuscript, paper,
+or abstract for a journal.  
+**Partial activation** (§9.3 + §9.4 only): monthly reports, cover
+letters, response-to-reviewer letters.
+
+---
+
+### 9.1 IMRAD section rules
+
+**Abstract** — flowing prose only; no labelled sub-sections
+(Background:, Methods:, Results:) unless the target journal explicitly
+requires a structured abstract. Standalone: a reader with no access to
+the paper must understand the full contribution from the abstract alone.
+
+**Introduction** — four moves, in order: (1) establish the importance
+and urgency of the problem; (2) survey relevant literature and identify
+the gap; (3) state the research question or hypothesis; (4) state the
+novelty and significance. Do not preview the paper structure unless the
+journal requires it.
+
+**Methods** — every parameter a reader needs to reproduce the experiment
+must appear: catalyst loading, flow rate, temperature, membrane type,
+electrolyte concentration, cell area, compression torque, gasket
+thickness. Pull from the boilerplate library in §2 Mode A but tighten
+for journal style — replace "according to our previous work" with an
+explicit `[ref]` citation.
+
+**Results** — objective reporting only. Observations and data belong
+here; mechanistic interpretation moves to Discussion (or to a combined
+Results & Discussion section — match the target journal's style).
+
+**Discussion** — four moves: (1) relate findings to the research
+question; (2) compare with literature (`[ref]` placeholders); (3)
+acknowledge limitations explicitly using the flag phrases in §3; (4)
+state future work and broader implications. Close with a clear one-to-
+two sentence statement of significance.
+
+---
+
+### 9.2 Journal-specific formatting (Heng's target venues)
+
+| Journal | Publisher | Citation style | Abstract type | Approx. limit |
+|---------|-----------|---------------|---------------|---------------|
+| *Nature Catalysis* | Nature Portfolio | Numbered superscript | Unstructured prose | ~150 w abstract; ~3 000 w main text |
+| *ACS Catalysis* | ACS | Numbered [brackets] | Unstructured | 6 000–8 000 w typical |
+| *J. Mater. Chem. A* (JMCA) | RSC | Numbered footnote | Unstructured | 4 000–6 000 w typical |
+| *Energy Environ. Sci.* (EES) | RSC | Numbered footnote | Unstructured | 5 000–8 000 w typical |
+| *Joule* | Cell Press | Numbered superscript | Unstructured | ~250 w abstract; flexible main text |
+| *ChemSusChem* | Wiley-VCH | Numbered [brackets] | Structured (Full Papers) | Flexible |
+
+**Writing register by venue**:
+- ***Nature Catalysis* / *Joule***: Story-driven, broad significance
+  first. Open with the societal or industrial challenge; save
+  mechanistic depth for the body. Graphical abstract required — plan
+  one before drafting.
+- ***ACS Catalysis***: Mechanistic depth expected from the first
+  paragraph. State selectivities and exact operating conditions in the
+  abstract.
+- ***EES* / *JMCA***: Emphasise energy application and scale-up
+  relevance. Quantify energy efficiency, stability duration, and cost
+  implications where possible.
+- ***ChemSusChem***: Emphasise sustainability angle; include green
+  chemistry metrics if applicable.
+
+---
+
+### 9.3 Grammar hard errors (fix in every document)
+
+| Error | Wrong → Correct |
+|-------|----------------|
+| Subject-verb disagreement | "The results *shows*" → "The results *show*" |
+| Wrong tense in methods/results | "We *measure* the samples" → "We *measured* the samples" |
+| Dangling modifier | "Using EIS, *the cell was characterised*" → "Using EIS, *we characterised* the cell" |
+| Fused sentence / comma splice | "FE(CO) dropped, *it recovered*" → "… dropped but recovered" |
+| Incorrect preposition | "*Compared to* prior work" → "*Compared with* prior work" (like-for-like) |
+| Missing comma after introductory clause | "After galvanostatic operation the voltage stabilised" → "After galvanostatic operation, the voltage stabilised" |
+| "data" treated as singular | "The data *was* consistent" → "The data *were* consistent" |
+| "since" used for causation | "*Since* the AEM was Sustainion" → "*Because* the AEM was Sustainion" |
+| "while" used for contrast | "*While* FE(CO) improved" → "*Although* / *Whereas* FE(CO) improved" |
+
+---
+
+### 9.4 Style errors (fix in manuscripts; apply selectively to reports)
+
+| Error | Fix |
+|-------|-----|
+| Weak verb | "We *looked at* the voltage" → "We *monitored* / *analysed* the voltage" |
+| Nominalisation | "performed an analysis of" → "analysed" |
+| Vague quantifier | "a number of cycles", "several experiments" → use exact counts |
+| Redundancy | "end result", "past history", "future plans" → drop the modifier |
+| Over-hedging | "It could possibly be suggested that perhaps…" → "These results suggest…" |
+
+Note: passive voice throughout is intentional per §3. Generic "passive
+overuse" warnings do not apply to Heng's writing. In manuscripts,
+occasional active voice in the Discussion is acceptable — use
+judgement.
+
+---
+
+### 9.5 Lists rule
+
+- **Acceptable in manuscripts**: Methods inclusion/exclusion criteria,
+  reagents/materials lists, supplementary tables.
+- **Never in**: Abstract, Introduction, Results, Discussion,
+  Conclusions — use full flowing prose paragraphs.
+- **Monthly reports**: bullet lists only in "To-do list" and "Upcoming
+  tasks" sections (§2 Mode A). All Results paragraphs must be prose.
+
+---
+
+### 9.6 Abbreviations and scientific notation
+
+- Define every abbreviation at first use: "bipolar membrane (BPM)";
+  thereafter BPM only.
+- Statistical variables in italics: *p*, *n*, *r*, *t*.
+- Spell out integers one through nine unless they are measurements or
+  percentages; use numerals for 10 and above, and always with units.
+- SI units with a space before the symbol: "200 sccm", "10 mA cm⁻²",
+  "37 °C" — consistent with §3 Numbers rule.
+
+---
+
+### 9.7 Pre-submission checklist (manuscripts)
+
+- [ ] Abstract is a standalone flowing paragraph; no labelled
+      sub-sections unless journal-required
+- [ ] Every experimental parameter needed for reproduction is in Methods
+- [ ] Results section contains no mechanistic interpretation (or journal
+      uses combined R&D — state which at the top of the draft)
+- [ ] Every Discussion claim is linked to a figure number or `[ref]`
+- [ ] All abbreviations defined at first use; consistent thereafter
+- [ ] No vague quantifiers — replaced with exact numbers or ranges
+- [ ] All `[ref]` placeholders listed in a "References to fill" block
+      at the end of the draft
+- [ ] Word / page count within venue limit (§9.2)
+- [ ] Figure captions are self-contained; all axes labelled with units
+- [ ] Graphical abstract prepared if required (*Nat. Catal.*, *Joule*,
+      Cell Press)
+- [ ] §9.3 grammar hard-error pass completed
+
+---
+
+### 9.8 Top rejection reasons to avoid
+
+1. Overstated conclusions not supported by the data (see §6 refuse rules)
+2. Methods insufficient for reproducibility
+3. No or vague limitations section
+4. Inadequate comparison with existing literature
+5. Figures unclear, low resolution, or missing axis labels/units
+6. Failure to follow venue-specific formatting (§9.2)
+7. Vague quantifiers and missing exact conditions throughout
