@@ -12,7 +12,7 @@ Fig 2 bottom panel is a label typo). 45° is next month's upcoming task.
 
 **Title**: Parallel flow-field 100 cm² MEA system: Influence of CO₂ flow rate on long-term CO₂ electrolysis
 **System**: AgNPs (50 nm, ~0.6 mg/cm²) | AEM (PiperION for the two bottom-panel 800 ml/min runs) | IrO₂-TiPt — 100 cm² parallel flow-field
-**Conditions**: 50 mM CH₃COOH humidified CO₂ (200, 400, 800 ml/min) — 150 ml/min 0.1 M KHCO₃ [figure label; docx procedure says 100 ml/min — TBD] — 100 mA/cm²
+**Conditions**: 50 mM CH₃COOH humidified CO₂ (200, 400, 800 ml/min) — 100 ml/min 0.1 M KHCO₃ (confirmed by Heng; the "150 ml/min" on the figure label is superseded) — 100 mA/cm²
 
 ### Top panel — FE(CO) + cell voltage vs time, three flow rates
 | CO₂ flow | Colour | Early FE(CO) | Durability (stable window) | End behaviour |
@@ -116,7 +116,7 @@ specific salt locations is [TBD] from higher-resolution photos.
 ---
 
 ## Values to confirm with Heng (TBD)
-- [ ] Fig 1: anolyte flow rate — figure label says 150 ml/min, docx procedure says 100 ml/min
+- [x] Fig 1: anolyte flow rate — confirmed 100 ml/min (figure-label "150 ml/min" superseded)
 - [ ] Fig 1: exact per-flow-rate end durations and end FE(CO) (200 / 400 / 800 ml/min) from GC CSV
 - [ ] Fig 1: exact timestamp of the 1st-run short-circuit event (~13–15 h)
 - [ ] Fig 2: exact short-circuit timestamps (~10 h, ~25 h) and FE(CO) before/after each from GC CSV

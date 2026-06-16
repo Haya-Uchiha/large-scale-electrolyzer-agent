@@ -35,7 +35,7 @@ flow-field decline and is addressed separately below.
 
 **Figure 1.** Influence of CO₂ flow rate (200, 400, 800 ml·min⁻¹) on FE(CO) and cell voltage
 of the AgNPs (50 nm, ~0.6 mg·cm⁻²) / AEM / IrO₂-TiPt 100 cm² parallel-flow-field MEA under
-50 mM CH₃COOH humidified CO₂, 150 ml·min⁻¹ [TBD] 0.1 M KHCO₃ anolyte, 100 mA·cm⁻². Lower
+50 mM CH₃COOH humidified CO₂, 100 ml·min⁻¹ 0.1 M KHCO₃ anolyte, 100 mA·cm⁻². Lower
 panels: cell-voltage and cathode vent-pressure profiles for two 800 ml·min⁻¹ runs with a
 PiperION AEM.
 
@@ -106,8 +106,7 @@ of operation.
 
 ## Placeholders / values Heng must verify
 
-1. **Fig 1 anolyte flow rate** — figure label reads 150 ml·min⁻¹, docx procedure reads
-   100 ml·min⁻¹. Confirm which applies to the flow-rate study.
+1. ~~**Fig 1 anolyte flow rate**~~ — resolved: 100 ml·min⁻¹ (confirmed by Heng).
 2. **Fig 1 durations & end FE(CO)** — exact stable-window end times and end FE(CO) for 200 /
    400 / 800 ml·min⁻¹ from GC CSV (currently `[estimated]`).
 3. **Fig 1 short-circuit timestamp** — exact time of the 1st-run 800 ml·min⁻¹ short-circuit
