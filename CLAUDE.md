@@ -65,6 +65,22 @@ the GDE/CO2 inlet causing FE(CO) collapse.
   signature (contrast with Track 1's rising V). Parallel flow-field shows
   *stable* V during failure — channel water blockage without deep GDE pore
   flooding (PTFE hydrophobicity holds).
+- **Tilt-angle (gravity-assisted drainage) operation** (100 cm², parallel
+  flow-field): the MEA cell is operated tilted from vertical (0° reference →
+  30°, 45° planned) so gravity drains accumulated liquid water from the
+  parallel channels, delaying channel water blockage. Effective only with an
+  adequately thick membrane — a 20 µm membrane short-circuits under tilted
+  compression, whereas a 40 µm membrane preserves electrical isolation.
+- **In-situ recovery interventions** (extend 100 cm² durability to ~195 h):
+  periodic dried-N₂ purging (4–8 h) re-opens gas pathways blocked by
+  water/salt; 0.1 M KHCO₃ anolyte refresh restores K⁺/carbonate balance.
+  Reversible FE(CO) excursions that recover after each intervention confirm
+  channel blockage (not irreversible catalyst/membrane failure) as the
+  limiting mechanism.
+- **Short-circuit event** — abrupt cell-voltage drop with stepwise FE(CO)
+  loss against an otherwise stable baseline; an electrical membrane breach,
+  distinct from gradual flow-field decline. Risk rises with thin membranes
+  and tilted-compression assembly.
 - **Prototype software**: `electrolyzer_control.py` (827 lines) implements
   state machine (IDLE → HEATING → PURGING → CO2_RAMP → OCV →
   GALVANOSTATIC → SHUTDOWN/ABORTED), alarm manager, data logger (1 Hz
