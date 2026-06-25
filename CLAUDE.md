@@ -695,3 +695,45 @@ judgement.
 5. Figures unclear, low resolution, or missing axis labels/units
 6. Failure to follow venue-specific formatting (§9.2)
 7. Vague quantifiers and missing exact conditions throughout
+
+---
+
+### 9.9 Cover-letter policy by publisher (apply when drafting submission cover letters)
+
+Cover-letter conventions differ by publisher; confirm the target venue first,
+then follow its rules. Draft advance-focused prose, ~1 page, passive/third-person
+voice optional here (first-person "we" is standard in cover letters).
+
+**RSC journals (EES, JMCA, EES, ChemSci, etc.)** — verified against RSC author
+guidelines + the RSC "Advancing with Advances" cover-letter blog:
+- **The cover letter is sent to reviewers** (EES). Write to persuade reviewers,
+  not only the editor; address the expert *and* an adjacent-field reader.
+- **Address to the relevant Associate or Executive Editor** — not a generic
+  "Dear Editor". Use a marked placeholder if the handling editor is unknown.
+- **Lead with a succinct statement of importance/impact.**
+- **Do NOT repeat abstract or introduction text** — this is RSC's top cover-letter
+  mistake. Frame the *advance over existing literature* and the design
+  principle/insight, not a results dump. Extract qualitative capability claims
+  (e.g. "high-performance across pure/dilute/flue-gas at 100–200 mA cm⁻²") rather
+  than restating FE/SPU numbers verbatim.
+- **Keep out of the letter** (these go in the submission system only): preferred /
+  non-preferred reviewers, themed-issue / invited-article references.
+- **Separate required items, NOT part of the cover letter**: EES needs a
+  **Broader Context** paragraph (≤200 words) and a **Data Availability Statement**.
+  Reference them as accompanying the submission; draft Broader Context separately.
+- Confirm originality, all-author approval, not-under-consideration-elsewhere, and
+  no competing interests; name the corresponding author.
+
+**ACS journals** — example in `writing.agent/manuscript/`: "Dear Editor" salutation
+acceptable; problem → gap → contribution → headline number → significance → fit;
+NANOTEC letterhead; signed by corresponding author. ACS does not forbid mirroring
+the abstract as strictly as RSC, but advance-focused framing is still preferred.
+
+**Resubmission / revision cover letters** (any publisher): state the manuscript
+title and article type, thank reviewers/editor, then summarise the major changes
+made point-by-point in prose; reaffirm all-author approval and no conflicts.
+(See JMCA resubmission example `20260527 Cover Letter - Kang.pdf`.)
+
+**.docx formatting**: write chemical formulae/units with **native Word
+sub/superscript runs** (CO₂, SO₂, Ni–N₄, cm⁻²), never Unicode glyphs — same
+convention as the manuscript body; use Arial and a true minus (−) in exponents.
