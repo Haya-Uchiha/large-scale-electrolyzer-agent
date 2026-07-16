@@ -1,0 +1,72 @@
+# July monthly report
+
+## To-do list in July
+
+- 100 cm² MEA electrolyzer operation in 15° tilted position – CO₂ electrolysis of 0.5NiSAC (850 °C-4h-10 °C·min⁻¹) catalyst in AEM system with 350 µm / 250 µm silicone gaskets and 8 ft·lb under 50 mM CH₃COOH humidified 400 mL/min CO₂, 100 mL/min of 0.1 M KHCO₃, and IrO₂-TiPt anode at 100 mA/cm² — long-term durability run.
+- 100 cm² MEA electrolyzer baseline in 0° (vertical) position – single-serpentine cathode flow-field with 0.5NiSAC under 50 mM CH₃COOH humidified 200 mL/min CO₂ at 100 mA/cm², for FE(CO)/SPU comparison against the 15° parallel configuration.
+- 5 cm² MEA electrolyzer – CO₂ electrolysis of 0.5NiSAC at different applied current densities (100–300 mA/cm²) to establish the FE(CO)–SPU correlation and identify the CO₂-depletion / mass-transport limit, followed by long-term stability tests at 250 and 300 mA/cm².
+- Optimisation of 0.5NiSAC synthesis – screening pyrolysis temperature (800–900 °C), hold time (2–4 h), and heating ramp rate (5–20 °C·min⁻¹) against BET textural properties (specific surface area, pore volume) and CO₂RR selectivity/durability.
+
+## Experimental Procedure
+
+### Synthesis of 0.5NiSAC by pyrolysis method
+
+The synthesis of 0.5NiSAC catalyst was followed by our previous work. Initially, nickel phthalocyanine (NiPc), urea, and dicyanamide precursors were stoichiometrically weighed according to mass ratios of 0.5:5:5. Subsequently, the mixture was thoroughly mixed and ground until a homogeneous midnight blue powder was obtained. The fine powder was then transferred into a quartz boat covered with a capsule lid and subjected to polymerization at 850 °C (ramp rate = 10 °C·min⁻¹) in a horizontal tube furnace under an argon atmosphere (flow rate > 200 sccm) for 4 h.
+
+### Preparation of 0.5NiSAC cathode via spray coating method
+
+The NiSAC gas-diffusion electrode was fabricated by spray coating onto a Sigracet 39BB carbon paper substrate. Typically, 150 mg of as-prepared 0.5NiSAC and 381 µL of XC-2 ionomer were ultrasonically dispersed in 10 mL of isopropanol (IPA) for at least 1 h to form a homogeneous dark colloidal suspension. The ink suspension was subsequently spray-coated onto an 11 × 11 cm² carbon substrate using an automated, custom-built spraying setup equipped with a syringe pump operating at a flow rate of 0.6 mL·min⁻¹ on a hotplate maintained at 130 °C, yielding a catalyst mass loading of 1.8 ± 0.1 mg·cm⁻².
+
+### IrO₂/TiPt anode fabrication
+
+The IrO₂/TiPt-felt anode electrode was prepared using a thermal deposition method involving multiple sequential steps. Initially, the TiPt felt substrate was ultrasonically cleaned with deionized water and acetone to remove any surface contaminants. The cleaned substrate was subsequently etched in a 6 M HCl solution at 90 °C for 45 min to enhance surface roughness and adhesion properties. The dip-coating solution was prepared by dissolving 200 mg of IrCl₆·xH₂O in 18 mL of isopropanol (IPA) containing 10 % v/v HCl (2 mL of conc. HCl). The etched TiPt felt substrate was then immersed in the dip-coating solution, followed by drying at 100 °C for 5 min in an oven and subsequent calcination at 500 °C for 10 min in a muffle furnace. After cooling to room temperature, the treated substrate was reweighed to determine mass gain. This dipping-drying-calcination cycle was repeated several times until the desired IrO₂ mass loading (10.2 mg/cm²) was achieved.
+
+### Electrochemical measurements in membrane-electrode assembly (MEA) electrolyzer
+
+A 100 cm² MEA electrolyzer was used to evaluate the CO₂RR performance under long-term operation in a tilted configuration. The IrO₂-TiPt felt (10.5 × 10.5 cm²), anion exchange membrane (AEM, 40 µm, 12 × 12 cm²), and 0.5NiSAC (10.5 × 10.5 cm²) were employed as the anode, membrane, and cathode electrode, respectively. The MEA was assembled with 350 µm / 250 µm silicone gaskets and tightened at a compression force of 8 ft·lb. 0.1 M KHCO₃ was recirculated and used throughout the experiment as the anolyte at 100 mL/min. CO₂ was humidified by passing through a 50 mM acetic acid (CH₃COOH) bubbler before entering the cathode at a total flow rate of 400 mL/min (15° parallel configuration) or 200 mL/min (0° single-serpentine baseline). The cell was operated at a 15° tilt from vertical so that gravity assists drainage of accumulated liquid water from the parallel channels. Galvanostatic operation was applied at a current density of 100 mA/cm². Prior to the test, electrochemical impedance spectroscopy (EIS) and cyclic voltammetry were measured. Meanwhile, the cathodic outlet was directly injected into an online gas chromatography for gas-products analysis, from which the Faradaic efficiency (FE) and single-pass CO₂ utilisation (SPU) were determined.
+
+## Results
+
+### Effect of MEA tilt angle on long-term FE(CO) durability at 100 cm²
+
+To evaluate the effect of MEA tilt angle on the long-term operational durability of the 0.5NiSAC catalyst, the 100 cm² cell was operated galvanostatically at 100 mA·cm⁻² (50 mM CH₃COOH humidified CO₂, 100 mL·min⁻¹ of 0.1 M KHCO₃) in a 0° (vertical) and a 15° tilted configuration. As shown in Figure 1, tilting the MEA cell from 0° to 15° markedly extended the stable FE(CO) operation from ~20 h to ~590 h, with FE(CO) maintained at ~95–100 % [estimated] and the cell voltage held at ~3.0–3.2 V [estimated] throughout the tilted run, while the single-pass CO₂ utilisation stabilised at ~18–20 % [estimated]. This pronounced improvement is attributed to the more effective gravity-assisted drainage of liquid water achieved under 15° tilted operation, which mitigates water accumulation within the gas-diffusion electrode (GDE) — one of the main causes of rapid cell failure in the vertical configuration. Near ~590 h, a gradual rise in cell voltage toward ~4 V was observed, accompanied by an increase in the CA-outlet gas signal and in parasitic HER activity, indicating the eventual onset of GDE flooding as accumulated water progressively restored the HER pathway at the expense of CO₂ reduction. Post-mortem inspection of the disassembled cell (Figure 2) revealed no precipitated salt within the flow-field channels, confirming that carbonate/bicarbonate salt precipitation was not the primary cause of cell failure in this case and corroborating water-driven GDE flooding as the limiting degradation mechanism. Overall, the ~590 h of stable ~95–100 % FE(CO) represents the longest continuous 100 cm² operation achieved to date and demonstrates that a modest 15° tilt substantially enhances the water management and durability of the 0.5NiSAC/AEM system.
+
+**Figure 1.** Long-term CO₂ electrolysis of the 0.5NiSAC (850 °C, 4 h, 10 °C·min⁻¹) / AEM 40 µm / IrO₂-TiPt 100 cm² MEA at 15° tilt, showing FE(CO) and SPU (0° single-serpentine, 200 mL·min⁻¹ vs 15° parallel, 400 mL·min⁻¹), cell voltage, CA-outlet pressure, cell temperature, and outlet-gas concentration versus operational time under 50 mM CH₃COOH humidified CO₂, 100 mL·min⁻¹ of 0.1 M KHCO₃, at 100 mA·cm⁻².
+
+### Post-mortem inspection of the 100 cm² MEA after 600 h operation
+
+The 100 cm² MEA cell was disassembled after the ~600 h run for post-mortem inspection. As shown in Figure 2, no precipitated salt was observed within the flow-field channels, and the 0.5NiSAC gas-diffusion electrode and the 40 µm anion exchange membrane remained largely intact. The absence of carbonate/bicarbonate salt precipitation confirms that salt formation was not the primary cause of cell failure in this run, in agreement with the voltage and CA-outlet behaviour in Figure 1, and supports water-driven GDE flooding as the limiting degradation mechanism.
+
+**Figure 2.** Post-mortem disassembly of the 100 cm² MEA after 600 h of CO₂ electrolysis, showing the cathode flow-field plate, the 0.5NiSAC gas-diffusion electrode (front and back), the AEM membrane, and the anode flow-field plate and housing.
+
+### Effect of applied current density on the FE(CO)–SPU correlation and operational stability at 5 cm²
+
+To ascertain the effect of applied current density on the FE(CO)–SPU correlation, the 5 cm² MEA cell (0.5NiSAC cathode, IrO₂-TiPt anode) was revisited and operated galvanostatically at 100–300 mA·cm⁻² for 1 h at each current density on a Sustainion AEM (0.5 M CH₃COOH humidified CO₂ at 20 mL·min⁻¹, 4 mL·min⁻¹ of 0.1 M KHCO₃). As shown in Figure 3, FE(CO) remained above 95 % from 100 to 250 mA·cm⁻² (98.35 %, 98.15 %, and 95.46 % at 100, 200, and 250 mA·cm⁻², respectively), with the single-pass CO₂ utilisation rising to a maximum of 46.14 % at 250 mA·cm⁻² (cell potential 2.94–3.28 V). Increasing the current density further to 300 mA·cm⁻² lowered FE(CO) to 86.94 % while the SPU increased only marginally to 48.75 %, indicating that the reaction had entered a mass-transport-limited regime under the high-SPU, CO₂-depleted condition, in which the additional current was increasingly consumed by the competing HER (FE(H₂) rising to 13.50 %).
+
+To evaluate the consequences of operating in this depleted-CO₂ zone, long-term stability tests were subsequently conducted on a PiperION AEM (40 µm). At 300 mA·cm⁻², FE(CO) declined rapidly from ~85 % to ~65 % [estimated] within only ~7 h of operation, consistent with the dominance of the competing HER. At 250 mA·cm⁻², the cell sustained FE(CO) > 90 % for ~12 h before (bi)carbonate salt clogging of the flow-field channels caused cell failure; notably, raising the humidifier concentration from 0.5 M to 1.0 M CH₃COOH did not prevent the salt-induced failure. These results demonstrate that operating in the high-SPU, CO₂-depleted regime accelerates cell failure through the combined effects of massive (bi)carbonate salt precipitation and the consequent GDE flooding. Accordingly, further operational conditions — increasing the acetic acid humidifier concentration or adopting a stronger-acid humidifier, together with increasing the CO₂ flow rate — will be explored to relieve CO₂ depletion and extend the operational lifespan of the system.
+
+**Figure 3.** CO₂ electrolysis of 0.5NiSAC (850 °C, 4 h, 10 °C·min⁻¹) / IrO₂-TiPt in a 5 cm² MEA at different applied current densities: (top) FE(CO), FE(H₂), SPU, and cell potential after 1 h electrolysis at 100, 200, 250, and 300 mA·cm⁻² on a Sustainion AEM; (middle) long-term FE(CO), SPU, and cell voltage at 300 mA·cm⁻² and (bottom) at 250 mA·cm⁻² comparing 0.5 M and 1.0 M CH₃COOH humidifier, both on a PiperION 40 µm AEM. Conditions: 0.5 M CH₃COOH humidified CO₂ at 20 mL·min⁻¹ (1.0 M for the bottom-panel comparison), 4 mL·min⁻¹ of 0.1 M KHCO₃.
+
+### Effect of pyrolysis temperature and hold time on the surface area, CO₂-to-CO selectivity, and durability of 0.5NiSAC
+
+To optimise the 0.5NiSAC synthesis, the effect of pyrolysis temperature (800, 850, and 900 °C) and hold time (2 and 4 h) on the textural properties and CO₂RR performance was investigated at a fixed ramp rate of 10 °C·min⁻¹. As shown in Figure 4, the Brunauer–Emmett–Teller (BET) analysis revealed that the pyrolysis temperature directly governed the textural properties: raising the temperature from 800 to 900 °C progressively increased both the specific surface area (135.70 → 171.50 → 181.92 m²·g⁻¹ for the 2 h series and 112.69 → 178.11 → 210.36 m²·g⁻¹ for the 4 h series) and the pore volume (0.34 → 0.41 → 0.52 cm³·g⁻¹ and 0.36 → 0.53 → 0.61 cm³·g⁻¹, respectively). In contrast, extending the hold time from 2 to 4 h exerted only a modest effect on the specific surface area while substantially increasing the pore volume (for example, from 0.41 to 0.53 cm³·g⁻¹ at 850 °C). In terms of CO₂RR performance, the 0.5NiSAC synthesised at 850 °C for 4 h (850C-4h-10 °C·min⁻¹) outperformed all other conditions, delivering the highest FE(CO) and the longest operational lifetime. These results indicate that an intermediate pyrolysis temperature combined with the extended 4 h hold time provides the optimal balance of active-site accessibility and mass-transport-favourable porosity for durable CO₂-to-CO conversion.
+
+**Figure 4.** Optimisation of 0.5NiSAC synthesis — effect of pyrolysis temperature and hold time. FE(CO) and cell voltage versus operational time for 0.5NiSAC pyrolysed at 800, 850, and 900 °C for (top) 2 h and (bottom) 4 h at a fixed 10 °C·min⁻¹ ramp rate, with the corresponding BET specific surface area and pore volume tabulated.
+
+### Effect of pyrolysis ramp rate on the surface area, CO₂-to-CO selectivity, and durability of 0.5NiSAC
+
+To further probe the synthesis parameters, the effect of the heating ramp rate was examined at each pyrolysis temperature, as shown in Figure 5. The BET analysis showed no consistent trend in the textural properties with ramp rate across the temperatures tested: at 850 °C (2 h), increasing the ramp rate from 10 to 20 °C·min⁻¹ raised the specific surface area from 171.50 to 220.90 m²·g⁻¹ with only a marginal change in pore volume (0.41 to 0.43 cm³·g⁻¹), whereas at 900 °C (4 h), increasing the ramp rate from 5 to 10 °C·min⁻¹ slightly lowered both the specific surface area (216.87 to 210.36 m²·g⁻¹) and the pore volume (0.79 to 0.61 cm³·g⁻¹). Consistently, the CO₂RR performance exhibited no systematic dependence on ramp rate, with FE(CO) and durability varying inconsistently between conditions. Because the present two-point ramp-rate comparison at each temperature is insufficient to resolve a clear trend, the ramp-rate range will be extended (5, 10, and 20 °C·min⁻¹) to more rigorously establish its effect on the catalyst texture and CO₂-to-CO performance.
+
+**Figure 5.** Optimisation of 0.5NiSAC synthesis — effect of pyrolysis ramp rate at each temperature. FE(CO) and cell voltage versus operational time for 0.5NiSAC pyrolysed at (top) 800 °C / 4 h (5 vs 10 °C·min⁻¹), (middle) 850 °C / 2 h (10 vs 20 °C·min⁻¹), and (bottom) 900 °C / 4 h (5 vs 10 °C·min⁻¹), with the corresponding BET specific surface area and pore volume tabulated.
+
+## Upcoming tasks
+
+- `[To be filled in manually by Heng]`
+
+---
+
+### Remaining values to verify (graph estimates)
+
+1. **Fig. 1** — FE(CO), SPU, cell-V, and the ~590 h onset timestamp are `[estimated]` from the graph; verify against GC/DAQ CSV.
+2. **Fig. 3 (300 mA·cm⁻² long-term)** — FE(CO) start/end stated as ~85 % → ~65 % over ~7 h; the graph points read closer to ~83 % → ~70 %. Verify exact values and failure time from GC CSV.
+3. **Fig. 3 membrane** — the 1 h screening used a Sustainion AEM (SustAEM) whereas the long-term runs used PiperION 40 µm. Confirm this membrane change was intentional.
